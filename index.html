@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>住宅分譲地説明会レポート - グラフィックレコーディング風インフォグラフィック</title>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700&family=Noto+Sans+JP:wght@400;500;700&family=Kosugi+Maru&family=Kaisei+Decol&family=Yomogi&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --mystic-1: #2E578C;
+            --mystic-2: #182D40;
+            --mystic-3: #BF807A;
+            --mystic-4: #592A2A;
+            --mystic-5: #F2F2F2;
+            --gray-600: #475569;
+            --gray-700: #334155;
+            --blue-800: #1e40af;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'M PLUS Rounded 1c', 'Kosugi Maru', 'Noto Sans JP', sans-serif;
+            background-color: var(--mystic-5);
+            color: var(--gray-700);
+            line-height: 1.4;
+            padding: 1rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%232E578C' fill-opacity='0.05' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'%3E%3C/path%3E%3C/svg%3E");
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px dashed var(--mystic-1);
+            position: relative;
+        }
+        
+        .title-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--mystic-1), var(--mystic-3));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin: 0;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--mystic-1), var(--mystic-3));
+            border-radius: 2px;
+        }
+        
+        .date-source {
+            font-size: 14px;
+            color: var(--gray-600);
+            text-align: right;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .section {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--mystic-1);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--blue-800);
+            margin: 0;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #f0f0f0;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--mystic-1);
+            opacity: 0.2;
+            font-size: 3rem;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        
+        .card:hover .card-icon {
+            opacity: 0.4;
+            transform: rotate(10deg);
+        }
+        
+        .point-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--mystic-1);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .detail-list {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        .detail-list li {
+            position: relative;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .detail-list li::before {
+            content: "\f0da";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            color: var(--mystic-3);
+            position: absolute;
+            left: 0;
+            top: 0.2rem;
+        }
+        
+        .keyword {
+            font-weight: 700;
+            color: var(--mystic-4);
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .keyword::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: rgba(191, 128, 122, 0.3);
+            border-radius: 2px;
+            z-index: -1;
+        }
+        
+        .q-and-a {
+            margin-bottom: 2rem;
+        }
+        
+        .question {
+            background-color: rgba(46, 87, 140, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .question-icon {
+            flex-shrink: 0;
+            color: var(--mystic-1);
+            font-size: 1.5rem;
+        }
+        
+        .question-text {
+            flex-grow: 1;
+        }
+        
+        .answer {
+            background-color: rgba(191, 128, 122, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .answer::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 2rem;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid rgba(191, 128, 122, 0.1);
+        }
+        
+        .answer-icon {
+            flex-shrink: 0;
+            color: var(--mystic-3);
+            font-size: 1.5rem;
+        }
+        
+        .answer-text {
+            flex-grow: 1;
+        }
+        
+        .connection-line {
+            position: absolute;
+            z-index: -1;
+            border-top: 3px dashed var(--mystic-1);
+            opacity: 0.5;
+        }
+        
+        .connection-icon {
+            position: absolute;
+            color: var(--mystic-1);
+            animation: moveAlong 2s infinite linear;
+        }
+        
+        @keyframes moveAlong {
+            0% {
+                transform: translateX(0) rotate(0);
+            }
+            100% {
+                transform: translateX(100%) rotate(360deg);
+            }
+        }
+        
+        .highlight {
+            background: linear-gradient(to right, rgba(46, 87, 140, 0.1), rgba(191, 128, 122, 0.1));
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .note {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            font-style: italic;
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--mystic-3);
+        }
+        
+        footer {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 2px dashed var(--mystic-1);
+            color: var(--gray-600);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* アニメーション効果 */
+        .fa-beat {
+            animation: fa-beat 2s infinite;
+        }
+        
+        .fa-bounce {
+            animation: fa-bounce 2s infinite;
+        }
+        
+        .fa-flip {
+            animation: fa-flip 2s infinite;
+        }
+        
+        .fa-spin {
+            animation: fa-spin 2s infinite linear;
+        }
+        
+        .fa-shake {
+            animation: fa-shake 2s infinite;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .column {
+                flex: 100%;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+            
+            .date-source {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="title-container">
+                <i class="fas fa-house fa-2x fa-bounce" style="color: var(--mystic-1);"></i>
+                <h1>【住宅分譲地説明会レポート】</h1>
+                <i class="fas fa-clipboard-list fa-2x fa-bounce" style="color: var(--mystic-3);"></i>
+            </div>
+            <div class="date-source">
+                <i class="fas fa-calendar-alt" style="color: var(--mystic-1);"></i>
+                <span>2025年4月19日</span>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <!-- 左カラム -->
+            <div class="column">
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-info-circle fa-2x fa-beat" style="color: var(--blue-800);"></i>
+                        <h2 class="section-title">1. 説明会の概要</h2>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-building card-icon"></i>
+                        <p>
+                            <span class="keyword"><i class="fas fa-home"></i>パナソニックホームズ</span>の分譲地（みずき台エリア）における住宅説明会。既存住民と営業担当者から購入検討者への情報提供の場として開催。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-tree fa-2x fa-beat" style="color: var(--blue-800);"></i>
+                        <h2 class="section-title">2-1. 周辺環境について</h2>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-leaf card-icon"></i>
+                        <div class="point-title">
+                            <i class="fas fa-check-circle fa-beat" style="color: var(--mystic-3);"></i>
+                            ポイント
+                        </div>
+                        <ul class="detail-list">
+                            <li>エリア内に複数の<span class="keyword"><i class="fas fa-park"></i>公園施設</span>が充実</li>
+                            <li><span class="keyword"><i class="fas fa-moon"></i>落ち着いた住環境</span>で車通りも少ない</li>
+                            <li>治安が良く、<span class="keyword"><i class="fas fa-car-side"></i>パトカーの巡回</span>も定期的に実施</li>
+                        </ul>
+                        
+                        <div class="point-title" style="margin-top: 1rem;">
+                            <i class="fas fa-list-ul" style="color: var(--mystic-3);"></i>
+                            詳細
+                        </div>
+                        <ul class="detail-list">
+                            <li>複数の公園（健康公園、小型公園など）が徒歩圏内にあり、<span class="keyword"><i class="fas fa-running"></i>ジョギングコース</span>、<span class="keyword"><i class="fas fa-table-tennis"></i>テニスコート</span>、<span class="keyword"><i class="fas fa-futbol"></i>フットサルコート</span>などの施設が充実</li>
+                            <li>健康公園は「立派でちゃんとした綺麗な公園」で駐車場も完備、徒歩5分程度でアクセス可能</li>
+                            <li>子どもたちの放課後の遊び場となっており、学校終了後の午後4〜5時頃に集まる</li>
+                            <li>公園側の道路も、人の往来はほとんどなく、静かで落ち着いている</li>
+                            <li>エリア全体は「神戸らしくない」と言われるほど落ち着いた雰囲気で静か</li>
+                            <li>警察による見回り（パトカーや原付バイク）が定期的に行われている</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-home fa-2x fa-beat" style="color: var(--blue-800);"></i>
+                        <h2 class="section-title">2-2. 住環境について</h2>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-house-user card-icon"></i>
+                        <div class="point-title">
+                            <i class="fas fa-check-circle fa-beat" style="color: var(--mystic-3);"></i>
+                            ポイント
+                        </div>
+                        <ul class="detail-list">
+                            <li><span class="keyword"><i class="fas fa-bug"></i>虫の発生</span>は限定的で深刻な問題なし</li>
+                            <li><span class="keyword"><i class="fas fa-shield-alt"></i>セキュリティ体制</span>が充実</li>
+                            <li>季節を問わず<span class="keyword"><i class="fas fa-temperature-low"></i>快適な室温</span>を維持しやすい</li>
+                            <li><span class="keyword"><i class="fas fa-bolt"></i>光熱費</span>はマンションより安価</li>
+                        </ul>
+                        
+                        <div class="point-title" style="margin-top: 1rem;">
+                            <i class="fas fa-list-ul" style="color: var(--mystic-3);"></i>
+                            詳細
+                        </div>
+                        <ul class="detail-list">
+                            <li>虫については、特定の時期に一時的にハエが発生する程度（約2週間で終息）</li>
+                            <li>夏場の蚊は一般的な住宅地と同程度で、公園や森に近いからといって特別多いわけではない</li>
+                            <li>各住宅に<span class="keyword"><i class="fas fa-lock"></i>防犯セキュリティシステム</span>が導入済み（玄関前通過で反応するタイプ）</li>
+                            <li>住宅の断熱性能が高く、冬も公園からの風の影響はほとんどなく、夏は涼しい</li>
+                            <li><span class="keyword"><i class="fas fa-bolt"></i>光熱費</span>は家族5人で完全リモートワークの場合でも<span class="keyword"><i class="fas fa-coins"></i>電気代とガス代で2万円未満</span>（マンション時代より節約）</li>
+                            <li>エアコンを多用しても床暖房のおかげで家全体が温かく、冬場も快適に過ごせる</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 中央カラム -->
+            <div class="column">
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-tools fa-2x fa-beat" style="color: var(--blue-800);"></i>
+                        <h2 class="section-title">2-3. 住宅設備について</h2>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-cogs card-icon"></i>
+                        <div class="point-title">
+                            <i class="fas fa-check-circle fa-beat" style="color: var(--mystic-3);"></i>
+                            ポイント
+                        </div>
+                        <ul class="detail-list">
+                            <li><span class="keyword"><i class="fas fa-tshirt"></i>衣類乾燥機</span>の導入が超おすすめ</li>
+                            <li><span class="keyword"><i class="fas fa-landmark"></i>バルコニーは広い</span>が使用頻度は低め</li>
+                            <li><span class="keyword"><i class="fas fa-utensils"></i>庭でのバーベキュー</span>が楽しめる</li>
+                            <li><span class="keyword"><i class="fas fa-wrench"></i>メンテナンスサポート</span>が充実</li>
+                        </ul>
+                        
+                        <div class="point-title" style="margin-top: 1rem;">
+                            <i class="fas fa-list-ul" style="color: var(--mystic-3);"></i>
+                            詳細
+                        </div>
+                        <ul class="detail-list">
+                            <li>ガス式衣類乾燥機は<span class="keyword"><i class="fas fa-wind"></i>短時間でふわふわに乾く</span>ため非常に便利（工事費含めて、導入に約50万円）</li>
+                            <li>バルコニーは一般的な住宅より広いが、乾燥機の使用で布団を干す程度の利用に</li>
+                            <li>高橋さんは庭には人工芝を敷いてバーベキュースペースを確保可能</li>
+                            <li>植栽には「横綱級」と言われる丈夫な生垣を使用しているそう。<span class="keyword"><i class="fas fa-calendar-check"></i>半年間のサポート</span>と<span class="keyword"><i class="fas fa-tools"></i>2回の無料メンテナンス</span>付き</li>
+                            <li>自動水やりシステムを、同じ団地内で自分で導入している人は多い（諸々3万円程度）</li>
+                            <li>住宅内部は<span class="keyword"><i class="fas fa-shield-alt"></i>2年間の保証</span>があり、壁紙の修理や階段の隙間調整などにも対応</li>
+                            <li>給湯システムは<span class="keyword"><i class="fas fa-fire-alt"></i>エネファーム（ガス式）</span>を採用し、お湯が切れる心配がなく同時発電も</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-street-view fa-2x fa-beat" style="color: var(--blue-800);"></i>
+                        <h2 class="section-title">2-4. 生活環境について</h2>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-city card-icon"></i>
+                        <div class="point-title">
+                            <i class="fas fa-check-circle fa-beat" style="color: var(--mystic-3);"></i>
+                            ポイント
+                        </div>
+                        <ul class="detail-list">
+                            <li><span class="keyword"><i class="fas fa-bus"></i>交通アクセス</span>が良好</li>
+                            <li><span class="keyword"><i class="fas fa-shopping-cart"></i>買い物施設</span>が充実</li>
+                            <li><span class="keyword"><i class="fas fa-users"></i>近所付き合い</span>は程よい距離感</li>
+                            <li><span class="keyword"><i class="fas fa-handshake"></i>コミュニティ活動</span>は現状少ない</li>
+                        </ul>
+                        
+                        <div class="point-title" style="margin-top: 1rem;">
+                            <i class="fas fa-list-ul" style="color: var(--mystic-3);"></i>
+                            詳細
+                        </div>
+                        <ul class="detail-list">
+                            <li>学園都市南インターや名谷北インターなど<span class="keyword"><i class="fas fa-road"></i>高速道路へのアクセスが便利</span></li>
+                            <li><span class="keyword"><i class="fas fa-store"></i>コストコ</span>が近く、時間帯を選べば混雑も回避可能</li>
+                            <li>道路は全体的に広く設計されている</li>
+                            <li>スーパー（オーケーなど）は<span class="keyword"><i class="fas fa-clock"></i>夜11時まで営業</span>、薬局も2軒（サンドラッグ、ウエルシア）あり</li>
+                            <li>家電・家具店も近くで生活用品はすべて揃えられる</li>
+                            <li>近所付き合いは挨拶程度で、プライバシーは確保</li>
+                            <li>現時点では集会所がなくコミュニティ活動はほぼないが、将来的には町内会が発足する可能性あり（月額約300円程度）</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-coins fa-2x fa-beat" style="color: var(--blue-800);"></i>
+                        <h2 class="section-title">2-5. その他（費用関連）</h2>
+                    </div>
+                    <div class="card">
+                        <i class="fas fa-hand-holding-usd card-icon"></i>
+                        <div class="point-title">
+                            <i class="fas fa-check-circle fa-beat" style="color: var(--mystic-3);"></i>
+                            ポイント
+                        </div>
+                        <ul class="detail-list">
+                            <li><span class="keyword"><i class="fas fa-file-invoice-dollar"></i>固定資産税</span>はマンションより安い</li>
+                            <li><span class="keyword"><i class="fas fa-money-bill-wave"></i>管理費</span>は月300円程度</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右カラム -->
+            <div class="column">
+                <div class="section">
+                    <div class="section-header">
+                        <i class="fas fa-question-circle fa-2x fa-beat" style="color: var(--blue-800);"></i>
+                        <h2 class="section-title">3. 質疑応答（Q&A）</h2>
+                    </div>
+                    
+                    <div class="q-and-a">
+                        <div class="question">
+                            <i class="fas fa-question-circle question-icon fa-beat"></i>
+                            <div class="question-text">
+                                <strong>質問1: 公園に近い立地で虫は気になりませんか？</strong>
+                                <div class="note">
+                                    <i class="fas fa-user"></i> 購入検討者 | 
+                                    <i class="fas fa-comment"></i> 森林公園側に近い立地で虫の発生が心配
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <i class="fas fa-comment-dots answer-icon fa-bounce"></i>
+                            <div class="answer-text">
+                                <p>既存住民からは「特にに気にならなかった」との回答。ハエが時期によって2週間程度発生することはあるが、植木の花の「いい匂い」に引かれるとのこと（ただし、年間通して2週間程度の期間）。夏場の蚊は一般的な住宅地と同程度で、特別多いわけではない。子どもが公園で遊ぶと、どうしても蚊は寄ってくるが、別に公園が近いからというわけではない印象。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="q-and-a">
+                        <div class="question">
+                            <i class="fas fa-question-circle question-icon fa-beat"></i>
+                            <div class="question-text">
+                                <strong>質問2: 蚊の対策はどうされていますか？</strong>
+                                <div class="note">
+                                    <i class="fas fa-user"></i> 購入検討者 | 
+                                    <i class="fas fa-comment"></i> 夏場の虫対策について具体的な方法を知りたい
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <i class="fas fa-comment-dots answer-icon fa-bounce"></i>
+                            <div class="answer-text">
+                                <p>庭に水がたまる場所にネットを張る対策が有効（ただし、高橋さんの住宅ではまだ導入できていない）。公園に行く際は虫よけスプレーを使用。いずれにせよ、森林や公園近くだから特別に多いというわけではない印象。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="q-and-a">
+                        <div class="question">
+                            <i class="fas fa-question-circle question-icon fa-beat"></i>
+                            <div class="question-text">
+                                <strong>質問3: 防犯セキュリティはどうなっていますか？</strong>
+                                <div class="note">
+                                    <i class="fas fa-user"></i> 購入検討者 | 
+                                    <i class="fas fa-comment"></i> 治安や防犯対策について確認したい
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <i class="fas fa-comment-dots answer-icon fa-bounce"></i>
+                            <div class="answer-text">
+                                <p>ほぼすべての家に防犯システムが導入されている。玄関前を通ると反応するシステム。スマートフォンからも確認可能。公園側からの侵入は少なく、前面のセキュリティがしっかりしている。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="q-and-a">
+                        <div class="question">
+                            <i class="fas fa-question-circle question-icon fa-beat"></i>
+                            <div class="question-text">
+                                <strong>質問4: 冬は寒いですか？公園から風が入ってきますか？</strong>
+                                <div class="note">
+                                    <i class="fas fa-user"></i> 購入検討者 | 
+                                    <i class="fas fa-comment"></i> 冬の住環境について懸念
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <i class="fas fa-comment-dots answer-icon fa-bounce"></i>
+                            <div class="answer-text">
+                                <p>公園からの風による寒さはない。マンション18階と比較しても寒さは感じない。床暖房により、冬はほとんどエアコンの暖房はつけなかった。夏は涼しく快適。雪もほとんど積もらない。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="q-and-a">
+                        <div class="question">
+                            <i class="fas fa-question-circle question-icon fa-beat"></i>
+                            <div class="question-text">
+                                <strong>質問5: 光熱費はどうですか？</strong>
+                                <div class="note">
+                                    <i class="fas fa-user"></i> 購入検討者 | 
+                                    <i class="fas fa-comment"></i> 一戸建てに移行した場合の光熱費変化を知りたい
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answer">
+                            <i class="fas fa-comment-dots answer-icon fa-bounce"></i>
+                            <div class="answer-text">
+                                <p>家族5人で完全リモートワークでも電気代・ガス代合わせて月2万円未満。マンション時代より安くなっている。エアコンをフル稼働させても問題ない。床暖房のおかげで家全体が暖かい。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <i class="fas fa-book" style="color: var(--mystic-1);"></i>
+            <span>出典: パナソニックホームズ分譲地説明会 | 2025年4月</span>
+        </footer>
+    </div>
+    
+    <script>
+        // ホバー効果やアニメーションを強化するためのスクリプト
+        document.addEventListener('DOMContentLoaded', function() {
+            // アイコンにホバー効果を追加
+            const icons = document.querySelectorAll('.fa-beat, .fa-bounce, .fa-flip, .fa-spin, .fa-shake');
+            icons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.color = 'var(--mystic-3)';
+                });
+                icon.addEventListener('mouseleave', function() {
+                    this.style.color = '';
+                });
+            });
+            
+            // スクロールに連動した要素の表示アニメーション
+            const animateOnScroll = function() {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (cardPosition < screenPosition) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // 初期状態を設定
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // スクロールイベントにアニメーション関数を紐づけ
+            window.addEventListener('scroll', animateOnScroll);
+            
+            // 初期表示時にも実行
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
